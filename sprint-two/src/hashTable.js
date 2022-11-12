@@ -14,7 +14,10 @@ HashTable.prototype.insert = function(k, v) {
   }
   for( var i = 0; i < this['_storage'].get(index).length; i++) {
     if (this['_storage'].get(index)[i][0] === k) {
+<<<<<<< HEAD
       //call remove function
+=======
+>>>>>>> b22243c03b600162759bbdc6d75e8e147396af8e
       this.remove(k);
     }
   }
