@@ -1,6 +1,4 @@
-// 0: ['key1', 'val], ['key2', val]
-// 1: ['key, 'val']
-// 2:
+
 var HashTable = function() {
   this._limit = 8;
   this._storage = LimitedArray(this._limit);
@@ -12,12 +10,9 @@ HashTable.prototype.insert = function(k, v) {
   if (!this['_storage'].get(index)) {
     this['_storage'].set(index, array);
   }
-  for( var i = 0; i < this['_storage'].get(index).length; i++) {
+  for ( var i = 0; i < this['_storage'].get(index).length; i++) {
     if (this['_storage'].get(index)[i][0] === k) {
-<<<<<<< HEAD
       //call remove function
-=======
->>>>>>> b22243c03b600162759bbdc6d75e8e147396af8e
       this.remove(k);
     }
   }
@@ -27,7 +22,7 @@ HashTable.prototype.insert = function(k, v) {
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   if (this['_storage'].get(index)) {
-    for( var i = 0; i < this['_storage'].get(index).length; i++ ) {
+    for ( var i = 0; i < this['_storage'].get(index).length; i++) {
       if (this['_storage'].get(index)[i][0] === k) {
         return this['_storage'].get(index)[i][1];
       }
