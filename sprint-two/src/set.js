@@ -15,13 +15,10 @@ setPrototype.add = function(item) {
 };
 
 setPrototype.contains = function(item) {
-  var result = false;
-  _.each(this['_storage'], function(val, key) {
-    if (key === item) {
-      result = true;
-    }
-  });
-  return result;
+  if (this['_storage'][item] !== undefined) {
+    return true;
+  }
+  return false;
 };
 
 setPrototype.remove = function(item) {
@@ -30,4 +27,5 @@ setPrototype.remove = function(item) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+----Constant----
  */

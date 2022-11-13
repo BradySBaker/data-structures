@@ -10,38 +10,42 @@ HashTable.prototype.insert = function(k, v) {
   if (!this['_storage'].get(index)) {
     this['_storage'].set(index, array);
   }
-  for ( var i = 0; i < this['_storage'].get(index).length; i++) {
-    if (this['_storage'].get(index)[i][0] === k) {
-      //call remove function
-      this.remove(k);
+  var thisObj = this;
+  _.each(this['_storage'].get(index), function(cur) {
+    if (cur[0] === k) {
+      thisObj.remove(k);
     }
-  }
+  });
   this['_storage'].get(index).push([k, v]);
 };
 
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
+  var valAtK;
   if (this['_storage'].get(index)) {
-    for ( var i = 0; i < this['_storage'].get(index).length; i++) {
-      if (this['_storage'].get(index)[i][0] === k) {
-        return this['_storage'].get(index)[i][1];
+    _.each(this['_storage'].get(index), function(cur) {
+      if (cur[0] === k) {
+        valAtK = cur[1];
       }
-    }
+    });
   }
+  return valAtK;
 };
 
 HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  for (var i = 0; i < this['_storage'].get(index).length; i++) {
-    if (this['_storage'].get(index)[i][0] === k) {
-      this['_storage'].get(index).splice(0, 1);
+  var storageObj = this['_storage'];
+  _.each(this['_storage'].get(index), function(cur, i) {
+    if (cur[0] === k) {
+      storageObj.get(index).splice(0, 1);
     }
-  }
+  });
 };
 
 
 
 /*
  * Complexity: What is the time complexity of the above functions?
+----Constant/Could be slightly Linear----
  */
 
