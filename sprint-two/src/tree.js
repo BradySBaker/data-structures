@@ -3,7 +3,11 @@ var Tree = function(value) {
   newTree.value = value;
 
   // your code here
+<<<<<<< HEAD
   newTree.children = [];
+=======
+  newTree.children = null;// fix me
+>>>>>>> part-one
 
   return newTree;
 };
