@@ -42,4 +42,12 @@ describe('tree', function() {
     expect(tree.contains(8)).to.equal(true);
   });
 
+  it('should be able to keep nesting children', function() {
+    tree.addChild(5);
+    tree.children[0].addChild(1);
+    tree.children[0].children[0].addChild(2);
+    tree.children[0].children[0].children[0].addChild(3);
+    expect(tree.children[0].children[0].children[0].children[0].value).to.equal(3);
+  });
+
 });

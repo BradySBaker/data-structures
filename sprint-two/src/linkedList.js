@@ -21,7 +21,7 @@ var LinkedList = function() {
     var curHead = this.head;
     this.head = curHead.next;
     this.length--;
-    if (length === 0) {
+    if (this.length === 0) {
       this.tail = null;
     }
     return curHead.value;

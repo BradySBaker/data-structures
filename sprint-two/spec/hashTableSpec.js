@@ -35,6 +35,20 @@ describe('hashTable', function() {
     expect(hashTable.retrieve('Steven')).to.equal(undefined);
   });
 
+  it('should handle big data set', function() {
+    hashTable.insert('Steven', 'Tyler');
+    hashTable.insert('Steven', 'Spielberg');
+    hashTable.insert('Bob', 'Barker');
+    hashTable.insert('Steve', 'James');
+    hashTable.insert('Joseph', 'John');
+    hashTable.insert('Sam', 'Jacobs');
+    hashTable.insert('David', 'Johnson');
+    hashTable.insert('Samuel', 'Lin');
+    hashTable.insert('Jackson', 'Baker');
+    hashTable.insert('Jack', 'Tulip');
+    expect(hashTable.retrieve('Steven')).to.equal('Spielberg');
+    expect(hashTable.retrieve('Jackson')).to.equal('Baker');
+  });
   it('should handle hash function collisions', function() {
     var v1 = 'val1';
     var v2 = 'val2';

@@ -51,5 +51,12 @@ describe('linkedList', function() {
     expect(linkedList.contains(4)).to.equal(false);
   });
 
+  it('should not remove tail when adding head', function() {
+    linkedList.addToTail(4);
+    linkedList.addToTail(5);
+    linkedList.removeHead();
+    expect(linkedList.tail.value).to.equal(5);
+  });
+
   // add more tests here to test the functionality of linkedList
 });
